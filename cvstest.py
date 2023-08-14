@@ -6,6 +6,8 @@ def scanReseau(target):
     scanMe = nmap.PortScanner()
     scanMe.scan(hosts=target, arguments="-sn")
 
+
+
     liste_hotes = []
 
     for hotes in scanMe.all_hosts():
@@ -38,8 +40,8 @@ csv_filename = 'scan_report.csv'
 
 # Write the data to CSV
 with open(csv_filename, 'w', newline='') as csvfile:
-    fieldnames = ['IP', 'Hostname', 'MAC Address', 'Vendor']
-    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    fieldname = ['IP', 'Hostname', 'MAC Address', 'Vendor']
+    writer = csv.DictWriter(csvfile, fieldnames=fieldname)
 
     writer.writeheader()
     for device in hotes_internes:
